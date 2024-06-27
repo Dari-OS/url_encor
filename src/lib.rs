@@ -1,3 +1,4 @@
-fn main() {
+pub mod encoder;
 
-}
+use encoder::Encoder;
+
