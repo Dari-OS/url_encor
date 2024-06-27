@@ -3,7 +3,7 @@ mod preprocessing;
 use preprocessing::{PREPROCESSED_ARRAY, HEX_DIGITS};
 
 
-pub fn url_encode(str_to_encode: &str) -> String  {
+pub fn encode(str_to_encode: &str) -> String  {
     let mut encoded_string = String::with_capacity(str_to_encode.len() * 3);
 
     for &current_byte in str_to_encode.as_bytes() {
@@ -19,18 +19,22 @@ pub fn url_encode(str_to_encode: &str) -> String  {
     return encoded_string;
 }
 
-pub trait Encoder<T = String> {
-    fn encode_url(&self) -> T;
+pub fn decode(_str_to_decode: &str) -> Option<String>{
+    todo!()
+}
 
-    fn decode_url(&self) -> T;
+pub trait Encoder<T = String> {
+    fn url_encode(&self) -> T;
+
+    fn url_decode(&self) -> Option<T>;
 }
 
 impl Encoder for String {
-    fn encode_url(&self) -> String {
-        url_encode(self)
+    fn url_encode(&self) -> String {
+        encode(self)
     }
 
-    fn decode_url(&self) -> String {
-        todo!();
+    fn url_decode(&self) -> Option<String> {
+        decode(self)
     }
 }
