@@ -1,5 +1,6 @@
-mod preprocessing;
+extern crate url_encor;
+
 
 fn main() {
-    preprocessing::printable_ascii_convertable(6);
+println!("{}", url_encor::url_encode("Hello Dear, World!"));
 }

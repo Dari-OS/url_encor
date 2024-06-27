@@ -43,9 +43,13 @@ pub const PREPROCESSED_ARRAY: [u8; 256] =
     0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0 ];
 
+pub const HEX_DIGITS: &[u8; 16] = b"0123456789ABCDEF";
+
+
 
 /// This prints the array of ascii chars that should get encoded (or not) in a more readable way
 ///
+#[allow(dead_code)]
 pub fn printable_ascii_convertable(number_before_linebreak: u8) {
 let mut current_number: u8 = 0;
 let array = preprocess_ascii_convertable();
@@ -70,6 +74,7 @@ for (index, current) in array.iter().enumerate() {
 /// - `1` - Char should not get encoded
 /// - `0` - Char should get encoded
 ///
+#[allow(dead_code)]
 fn preprocess_ascii_convertable() -> [u8; 256] {
     let mut array = [0_u8; 256];
     for index in 0..=255u8 {
