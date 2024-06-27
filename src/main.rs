@@ -1,6 +1,7 @@
 extern crate url_encor;
 
-
+use url_encor::Encoder;
 fn main() {
-println!("{}", url_encor::url_encode("Hello Dear, World!"));
+let test_string = String::from(r#"Hello !"&/?)"§$`)(="§`$=) €@"#);
+    println!("{}", test_string.encode_url())
 }

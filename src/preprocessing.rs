@@ -1,10 +1,10 @@
 /// # Preprocessed array of values that needs to be converted
-/// This is the result of calling the `printable_ascii_convertable(number);`
+/// This is the result of calling the `printable_ascii_convertable(6);`
 ///
 /// It shows which chars should get encoded.
 ///
-/// - `1` lets the program know to **NOT** encode the chat
-/// - `0` lets the program know to encode the chat
+/// - `1` lets the program know to **NOT** encode the char
+/// - `0` lets the program know to encode the char
 pub const PREPROCESSED_ARRAY: [u8; 256] =
     [0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0,

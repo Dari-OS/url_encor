@@ -1,4 +1,3 @@
-pub mod encoder;
 mod preprocessing;
 
 use preprocessing::{PREPROCESSED_ARRAY, HEX_DIGITS};
@@ -18,4 +17,20 @@ pub fn url_encode(str_to_encode: &str) -> String  {
     }
 
     return encoded_string;
+}
+
+pub trait Encoder<T = String> {
+    fn encode_url(&self) -> T;
+
+    fn decode_url(&self) -> T;
+}
+
+impl Encoder for String {
+    fn encode_url(&self) -> String {
+        url_encode(self)
+    }
+
+    fn decode_url(&self) -> String {
+        todo!();
+    }
 }
