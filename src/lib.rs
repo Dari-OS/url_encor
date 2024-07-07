@@ -1,6 +1,6 @@
 mod preprocessing;
 
-use preprocessing::{HEX_DIGITS, PREPROCESSED_ARRAY};
+use preprocessing::{HEX_DIGITS, PREPROCESSED_ARRAY, HEX_BYTE_TO_HEX_VALUE};
 
 pub fn encode(str_to_encode: &str) -> String {
     let mut encoded_string = String::with_capacity(str_to_encode.len() * 3);
@@ -26,6 +26,7 @@ pub fn decode(str_to_decode: &str) -> String {
 
     let mut i = 0;
     while i < bytes.len() {
+        println!("Current string is:{}\nThe incoming char is:{}\n", decoded_string, bytes[i] as char);
         if let (Some(b'%'), Some(n1), Some(n2)) = (bytes.get(i), bytes.get(i + 1), bytes.get(i + 2))
         {
 
@@ -48,11 +49,11 @@ pub fn decode(str_to_decode: &str) -> String {
 }
 
 fn from_hex(c: u8) -> Option<u8> {
-    match c {
-        b'0'..=b'9' => Some(c - b'0'),
-        b'A'..=b'F' => Some(c - b'A' + 10),
-        b'a'..=b'f' => Some(c - b'a' + 10),
-        _ => None,
+    let val = HEX_BYTE_TO_HEX_VALUE[c as usize];
+    return if val != -1 {
+        Some(val as u8)
+    } else {
+        None
     }
 }
 
