@@ -18,43 +18,37 @@ pub fn encode(str_to_encode: &str) -> String {
     return encoded_string;
 }
 
-//TODO: Add multi-byte utf8 support
 pub fn decode(str_to_decode: &str) -> String {
-    let mut decoded_string = String::with_capacity(str_to_decode.len());
-
+    let mut decoded_bytes = Vec::with_capacity(str_to_decode.len());
     let bytes = str_to_decode.as_bytes();
-
     let mut i = 0;
+
     while i < bytes.len() {
-        println!("Current string is:{}\nThe incoming char is:{}\n", decoded_string, bytes[i] as char);
-        if let (Some(b'%'), Some(n1), Some(n2)) = (bytes.get(i), bytes.get(i + 1), bytes.get(i + 2))
-        {
-
-            let decoded_byte: Option<u8> = match (from_hex(*n1), from_hex(*n2)) {
-                (Some(n1), Some(n2)) => Some(n1 << 4 | n2),
-                _ => None,
-            };
-
-            if let Some(temp) = decoded_byte {
-                decoded_string.push(temp as char);
+        if bytes[i] == b'%' && i + 2 < bytes.len() {
+            if let (Some(n1), Some(n2)) = (from_hex(bytes[i + 1]), from_hex(bytes[i + 2])) {
+                decoded_bytes.push((n1 << 4) | n2);
                 i += 3;
-                continue;
+            } else {
+                // Invalid percent-encoding, just push the original characters
+                decoded_bytes.push(b'%');
+                decoded_bytes.push(bytes[i + 1]);
+                decoded_bytes.push(bytes[i + 2]);
+                i += 3;
             }
+        } else if bytes[i] == b'+' { //Some legacy systems decode a space as '+'
+            decoded_bytes.push(b' ');
+            i += 1;
+        } else {
+            decoded_bytes.push(bytes[i]);
+            i += 1;
         }
-
-        decoded_string.push(bytes[i] as char);
-        i += 1;
     }
-    decoded_string
+
+    String::from_utf8_lossy(&decoded_bytes).into_owned()
 }
 
 fn from_hex(c: u8) -> Option<u8> {
-    let val = HEX_BYTE_TO_HEX_VALUE[c as usize];
-    return if val != -1 {
-        Some(val as u8)
-    } else {
-        None
-    }
+    HEX_BYTE_TO_HEX_VALUE[c as usize].try_into().ok()
 }
 
 pub trait Encoder<T = String> {
