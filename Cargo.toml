@@ -5,6 +5,7 @@ version = "0.1.0"
 edition = "2021"
 repository = "https://github.com/Dari-OS/url_encor"
 license = "MIT"
+license-file = "LICENSE"
 authors = ["Dari-OS <Darius.dev@proton.me>"]
 readme = "README.md"
 keywords = ["url_encoding", "url_decoding", "url", "url-decoding", "url-encoding"]
