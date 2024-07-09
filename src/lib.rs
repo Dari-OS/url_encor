@@ -66,3 +66,52 @@ impl Encoder for String {
         decode(self)
     }
 }
+
+
+#[cfg(test)]
+mod tests {
+
+    use super::*;
+
+
+    #[test]
+    fn test_preprocessed_hex_conversion() {
+        assert_eq!(HEX_BYTE_TO_HEX_VALUE, preprocessing::from_hex_bytes_to_value_bytes())
+    }
+
+    #[test]
+    fn test_preprocessed_ascii_convertable() {
+        assert_eq!(PREPROCESSED_ARRAY, preprocessing::preprocess_ascii_convertable())
+    }
+
+
+    #[test]
+    fn test_hex_values() {
+
+        let hex_chars: [char; 16] = [
+            '0', '1', '2', '3', '4', '5', '6', '7',
+            '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'
+        ];
+
+        for i in 0..16usize {
+            assert_eq!(HEX_DIGITS[i], hex_chars[i] as u8);
+        }
+    }
+
+
+    #[test]
+    fn test_from_hex_function() {
+        for i in 0..HEX_BYTE_TO_HEX_VALUE.len() {
+
+            let result1 = from_hex(i as u8);
+            let result2 = HEX_BYTE_TO_HEX_VALUE[i];
+            if let (None, -1) = (result1, result2)  {
+                continue;
+            } else if result1.is_none() {
+                assert!(false, "{}" ,format!("The function returned {:?} but {} was expected", result1, result2))
+            }
+
+            assert_eq!(result2, result1.unwrap() as i16)
+        }
+    }
+}
