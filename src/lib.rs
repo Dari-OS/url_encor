@@ -24,6 +24,8 @@ use preprocessing::{HEX_DIGITS, PREPROCESSED_ARRAY, HEX_BYTE_TO_HEX_VALUE};
 /// # Examples
 ///
 /// ```
+/// use url_encor::encode;
+///
 /// let encoded = encode("Hello, World!");
 /// assert_eq!(encoded, "Hello%2C%20World%21");
 /// ```
@@ -61,6 +63,8 @@ pub fn encode(str_to_encode: &str) -> String {
 /// # Examples
 ///
 /// ```
+/// use url_encor::decode;
+///
 /// let decoded = decode("Hello%2C%20World%21");
 /// assert_eq!(decoded, "Hello, World!");
 /// ```
@@ -96,7 +100,7 @@ pub fn decode(str_to_decode: &str) -> String {
     String::from_utf8_lossy(&decoded_bytes).into_owned()
 }
 
-/// Converts a hexadecimal character to its corresponding value.
+/// Converts a hexadecimal character (represented as byte) to its corresponding decimal value (represented as byte as well).
 ///
 /// # Arguments
 ///

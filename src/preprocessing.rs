@@ -7,7 +7,8 @@ use std::fmt::Display;
 ///
 /// - `1` lets the program know to **NOT** encode the char
 /// - `0` lets the program know to encode the char
-pub const PREPROCESSED_ARRAY: [u8; 256] = [0, 0, 0, 0, 0, 0,
+pub const PREPROCESSED_ARRAY: [u8; 256] =
+    [0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0,
@@ -141,6 +142,8 @@ where T: Display{
 ///
 /// - `1` - Char should not get encoded
 /// - `0` - Char should get encoded
+///
+/// Which characters **should get encoded** gets decided by: https://www.rfc-editor.org/rfc/rfc3986#section-2.3
 ///
 #[allow(dead_code)]
 pub fn preprocess_ascii_convertable() -> [u8; 256] {
