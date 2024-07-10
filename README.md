@@ -1,3 +1,3 @@
-# URL_encoR
+# url_encor
 
-A small rust library to encode and decode urls!
+A small rust library to encode and decode URLs!

@@ -1,4 +1,4 @@
-//! # URL_encoR Crate
+//! # url_encor Crate
 //!
 //! This crate provides functionality for URL encoding and decoding.
 //! It includes both standalone functions and a trait implementation for convenient use with `String` types.
@@ -8,7 +8,7 @@ mod preprocessing;
 
 use preprocessing::{HEX_DIGITS, PREPROCESSED_ARRAY, HEX_BYTE_TO_HEX_VALUE};
 
-/// Encodes a string using URL_encoR.
+/// Encodes a string using url_encor.
 ///
 /// This function iterates through each byte of the input string and encodes it if necessary.
 /// Characters that don't need encoding are left as-is.
