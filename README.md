@@ -116,6 +116,7 @@ impl Encoder<CharVector> for CharVector {
 ## Related links :link:
 
  - [crates.io](https://crates.io/crates/url_encor/)
+ - [docs.rs](https://docs.rs/url_encor/latest/url_encor/)
  - [lib.rs](https://lib.rs/crates/url_encor)
 
 
