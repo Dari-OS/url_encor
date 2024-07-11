@@ -1,10 +1,10 @@
 
-# url_encor
+# url_encor :globe_with_meridians:
 
-A small and lightweight rust library to encode and decode URLs!
+A small and lightweight:feather: rust library to encode and decode URLs!
 
 
-## Goal
+## Goal :white_check_mark:
 
 **url_encor** aims to provide fast :rocket: url _encoding_ and _decoding_  
 It achieves this by doing most of the heavy lifting :muscle: using ___preprocessed___ data.  
@@ -16,7 +16,7 @@ The following things get ___preprocessed:___
 
 Take a look at [this file](./src/preprocessing.rs) and see what gets ___preprocessed___!
 
-## Usage
+## Usage :gear:
   
    
 #### _Encoding_ a String is as easy as it gets
@@ -113,13 +113,13 @@ impl Encoder<CharVector> for CharVector {
     }
 }
 ```
-## Related links
+## Related links :link:
 
  - [crates.io](https://crates.io/crates/url_encor/)
  - [lib.rs](https://lib.rs/crates/url_encor)
 
 
-## Issues?
+## Issues :interrobang:
 
 If you encounter any problem, bug or issue, please open a new [issue](https://github.com/Dari-OS/url_encor/issues/new)
 
