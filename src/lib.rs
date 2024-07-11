@@ -114,13 +114,13 @@ fn from_hex(c: u8) -> Option<u8> {
 }
 
 /// A trait for types that can be URL encoded and decoded.
-pub trait Encoder<T = String> {
-    /// Encodes the value using URL encoding.
-    fn url_encode(&self) -> T;
+    pub trait Encoder<T = String> {
+        /// Encodes the value using URL encoding.
+        fn url_encode(&self) -> T;
 
-    /// Decodes the value from URL encoding.
-    fn url_decode(&self) -> T;
-}
+        /// Decodes the value from URL encoding.
+        fn url_decode(&self) -> T;
+    }
 
 /// Implementation of the `Encoder` trait for `String`.
 impl Encoder for String {
