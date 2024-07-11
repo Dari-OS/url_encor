@@ -1,6 +1,7 @@
 
 # url_encor :globe_with_meridians:
 
+![Workflow test](https://github.com/Dari-OS/url_encor/actions/workflows/rust.yml/badge.svg)  
 A small and lightweight:feather: rust library to encode and decode URLs!
 
 
