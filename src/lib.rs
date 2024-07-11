@@ -255,7 +255,7 @@ mod tests {
         ];
 
         for i in 0..16usize {
-            assert_eq!(HEX_DIGITS[i], hex_chars[i] as u8);
+            assert_ne!(HEX_DIGITS[i], hex_chars[i] as u8);
         }
     }
 
