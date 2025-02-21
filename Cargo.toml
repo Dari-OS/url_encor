@@ -1,13 +1,19 @@
 [package]
 name = "url_encor"
 description = "A lightweight library to encode and decode special characters in urls"
-version = "1.0.2"
+version = "1.0.3"
 edition = "2021"
 repository = "https://github.com/Dari-OS/url_encor"
 license = "MIT"
 authors = ["Dari-OS <Darius.dev@proton.me>"]
 readme = "README.md"
-keywords = ["url_encoding", "url_decoding", "url", "url-decoding", "url-encoding"]
+keywords = [
+  "url_encoding",
+  "url_decoding",
+  "url",
+  "url-decoding",
+  "url-encoding",
+]
 
 
 [dependencies]
