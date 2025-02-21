@@ -105,6 +105,7 @@
 //! If you encounter any problem, bug or issue, please open a new [issue](https://github.com/Dari-OS/url_encor/issues/new)
 
 mod preprocessing;
+mod implementations;
 
 use preprocessing::{HEX_DIGITS, PREPROCESSED_ARRAY, HEX_BYTE_TO_HEX_VALUE};
 
@@ -222,16 +223,6 @@ fn from_hex(c: u8) -> Option<u8> {
         fn url_decode(&self) -> T;
     }
 
-/// Implementation of the `Encoder` trait for `String`.
-impl Encoder for String {
-    fn url_encode(&self) -> String {
-        encode(self)
-    }
-
-    fn url_decode(&self) -> String {
-        decode(self)
-    }
-}
 
 #[cfg(test)]
 mod tests {

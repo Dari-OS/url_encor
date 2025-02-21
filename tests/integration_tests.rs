@@ -78,15 +78,16 @@ mod decoding_tests {
     }
 }
 
+
+fn encode_decode_test(input: &str) {
+   let encoded = encode(input);
+   let decoded = decode(&encoded);
+   assert_eq!(decoded, input, "Failed on input: {}", input);
+ }
 #[cfg(test)]
 mod combined_encoding_decoding_tests {
     use super::*;
 
-    fn encode_decode_test(input: &str) {
-        let encoded = encode(input);
-        let decoded = decode(&encoded);
-        assert_eq!(decoded, input, "Failed on input: {}", input);
-    }
 
     #[test]
     fn test_ascii_roundtrip() {
